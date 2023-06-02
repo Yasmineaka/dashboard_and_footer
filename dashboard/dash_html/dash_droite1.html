@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tableau de bord</title>
+  <style>
+    /* Reset des styles par défaut */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* Styles généraux du tableau de bord */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    
+    .dashboard {
+      display: flex;
+    }
+    
+    /* Styles du menu de gauche */
+    .sidebar {
+      background-color: #193d5a;
+      color: #fff;
+      width: 200px;
+      padding: 20px;
+      transition: width 0.3s;
+      position: relative;
+    }
+    
+    .sidebar.closed {
+      width: 60px;
+    }
+    
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      position: relative;
+    }
+    
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+    
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      padding: 8px 16px;
+      border-radius: 4px;
+      position: relative;
+      z-index: 1;
+      transition: background-color 0.3s;
+    }
+    
+    .sidebar a:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #5f9ea0;
+      transform-origin: right center;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      z-index: -1;
+    }
+    
+    .sidebar a:hover {
+      background-color: transparent;
+    }
+    
+    .sidebar a:hover:before {
+      transform: scaleX(1);
+    }
+    
+    .sidebar.closed a {
+      text-align: center;
+    }
+    
+    .sidebar.closed a:before {
+      transform-origin: left center;
+    }
+    
+    /* Styles du contenu principal */
+    .content {
+      flex: 1;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+    
+    /* Styles supplémentaires pour un aspect professionnel */
+    .sidebar {
+      font-size: 16px;
+    }
+    
+    .sidebar a {
+      font-weight: bold;
+    }
+    
+    .sidebar a:hover {
+      background-color: #4c7693;
+    }
+    
+    .content h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #193d5a;
+    }
+    
+    /* Ajoutez ici les styles supplémentaires pour le contenu principal */
+    
+    /* Styles pour la version responsive */
+    @media (max-width: 768px) {
+      .dashboard {
+        flex-direction: column;
+      }
+      
+      .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      
+      .sidebar.closed {
+        width: 100%;
+      }
+      
+      .content {
+        flex: 1;
+        margin-left: 0;
+      }
+    }
+    
+  </style>
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      sidebar.classList.toggle('closed');
+    }
+  </script>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="sidebar">
+      <ul>
+        <li><a href="#">Menu 1</a></li>
+        <li><a href="#">Menu 2</a></li>
+        <li><a href="#">Menu 3</a></li>
+        <li><a href="#">Menu 4</a></li>
+        <li><a href="#">Menu 5</a></li>
+        <li><a href="#">Menu 6</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <!-- Contenu principal du tableau de bord -->
+      <h1>Bienvenue dans le tableau de bord professionnel</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod diam ac justo feugiat, sit amet suscipit neque congue. Nullam lobortis elit velit, in vestibulum odio hendrerit sed. Nullam ultrices vulputate dui, nec ultrices quam vestibulum eu. Suspendisse potenti. Donec blandit convallis pharetra. Suspendisse potenti.</p>
+      <button onclick="toggleSidebar()">Toggle Sidebar</button>
+    </div>
+  </div>
+</body>
+</html>
